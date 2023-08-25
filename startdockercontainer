@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 2 ];
+then
+    echo "providetwo arguments. your Docker ID and file name"
+    exit 1
+fi
+sudo docker run -dp 0.0.0.0:5001:3000 $1/$2
+
