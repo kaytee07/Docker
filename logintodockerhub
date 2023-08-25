@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <docker_id> <password>"
+    exit 1
+fi
+
+docker_id="$1"
+password="$2"
+
+# Log in to Docker Hub
+echo "$password" | docker login -u "$docker_id" --password-stdin
+
+if [ $? -eq 0 ]; then
+    echo "Successfully logged in to Docker Hub as $docker_id"
+else
+    echo "Login to Docker Hub failed"
+fi
