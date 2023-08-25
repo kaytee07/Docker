@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if [ $# -lt 1 ]; then
+if [ $# -ne 1 ]; then
     current_time=$(date +%H:%M:%S)
-    echo "$current_time: dockerid not available"
+    echo "$current_time: Usage: $0 <docker_id>"
     exit 1  # Exit with a non-zero status to indicate an error
 fi
 

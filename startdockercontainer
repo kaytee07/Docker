@@ -2,7 +2,7 @@
 
 if [ $# -lt 2 ];
 then
-    echo "providetwo arguments. your Docker ID and file name"
+    echo "Usage: $0 <docker_id> <docker_filename>"
     exit 1
 fi
 sudo docker run -dp 0.0.0.0:5001:3000 $1/$2
