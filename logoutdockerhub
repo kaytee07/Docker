@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-docker logout
+if sudo docker logout; then
+    echo "Docker logout successful."
+else
+    echo "Docker logout failed."
+fi
