@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
-if [ $# -lt 2 ];
-then
+if [ $# -ne 2 ]; then
     echo "Usage: $0 <docker_id> <docker_filename>"
     exit 1
 fi
-sudo docker run -dp 0.0.0.0:5001:3000 $1/$2
+
+docker_id="$1"
+docker_filename="$2"
+
+# Run the container directly from Docker Hub
+if sudo docker run -dp 0.0.0.0:5001:3000 "$docker_id/$docker_filename"; then
+    echo "Container started successfully."
+else
+    echo "Container startup failed."
+fi
 
